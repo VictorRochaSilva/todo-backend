@@ -62,7 +62,7 @@ npm run dev
 
 | Método | Rota                | Descrição                              | Parâmetros (Body/Query)               |
 |--------|---------------------|----------------------------------------|---------------------------------------|
-| `GET`  | `/api/tasks`        | Lista todas as tarefas (com paginação) | `?page=1&limit=10`<br>`?completed=true`<br>`?search=termo`<br>`?dueDateFrom=YYYY-MM-DD&dueDateTo=YYYY-MM-DD` |
-| `POST` | `/api/tasks`        | Cria uma nova tarefa                   | **Body (JSON):**<br>`{ "title": string (obrigatório), "description": string (opcional), "dueDate": Date (opcional) }` |
-| `PATCH`| `/api/tasks/:id`    | Atualiza uma tarefa                    | **Body (JSON):**<br>`{ "title": string, "description": string, "dueDate": Date, "completed": boolean }` (campos opcionais) |
-| `DELETE`| `/api/tasks/:id`   | Remove uma tarefa                      | - |
+| `GET`  | `/tasks`        | Lista todas as tarefas (com paginação) | `?page=1&limit=10`<br>`?completed=true`<br>`?search=termo`<br>`?dueDateFrom=YYYY-MM-DD&dueDateTo=YYYY-MM-DD` |
+| `POST` | `/tasks`        | Cria uma nova tarefa                   | **Body (JSON):**<br>`{ "title": string (obrigatório), "description": string (opcional), "dueDate": Date (opcional) }` |
+| `PATCH`| `/tasks/:id`    | Atualiza uma tarefa                    | **Body (JSON):**<br>`{ "title": string, "description": string, "dueDate": Date, "completed": boolean }` (campos opcionais) |
+| `DELETE`| `/tasks/:id`   | Remove uma tarefa                      | - |
