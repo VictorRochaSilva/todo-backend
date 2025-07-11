@@ -9,13 +9,9 @@ Uma API RESTful para gerenciamento de tarefas, desenvolvida com **Node.js**, **E
 - [🛠 Tecnologias](#-tecnologias)
 - [📋 Pré-requisitos](#-pré-requisitos)
 - [⚙ Configuração do Ambiente](#-configuração-do-ambiente)
-- [🚀 Execução do Projeto](#-execução-do-projeto)
 - [🔐 Variáveis de Ambiente](#-variáveis-de-ambiente)
+- [🚀 Execução do Projeto](#-execução-do-projeto)
 - [🌐 Rotas da API](#-rotas-da-api)
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [🧪 Testes](#-testes)
-- [🤝 Contribuição](#-contribuição)
-- [🎯 Status do Projeto](#-status-do-projeto)
 
 ---
 
@@ -62,3 +58,13 @@ npm start
 # Para desenvolvimento (com hot-reload):
 npx nodemon src/server.js
 Acesse http://localhost:3001/api/tasks
+
+
+## 📡 Rotas da API
+
+| Método | Rota                | Descrição                              | Parâmetros (Body/Query)               |
+|--------|---------------------|----------------------------------------|---------------------------------------|
+| `GET`  | `/api/tasks`        | Lista todas as tarefas (com paginação) | `?page=1&limit=10`<br>`?completed=true`<br>`?search=termo`<br>`?dueDateFrom=YYYY-MM-DD&dueDateTo=YYYY-MM-DD` |
+| `POST` | `/api/tasks`        | Cria uma nova tarefa                   | **Body (JSON):**<br>`{ "title": string (obrigatório), "description": string (opcional), "dueDate": Date (opcional) }` |
+| `PATCH`| `/api/tasks/:id`    | Atualiza uma tarefa                    | **Body (JSON):**<br>`{ "title": string, "description": string, "dueDate": Date, "completed": boolean }` (campos opcionais) |
+| `DELETE`| `/api/tasks/:id`   | Remove uma tarefa                      | - |
