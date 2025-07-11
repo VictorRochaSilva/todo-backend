@@ -56,9 +56,7 @@ copie do env.example os dados para o arquivo .env na raiz do projeto.
 npm start
 
 # Para desenvolvimento (com hot-reload):
-npx nodemon src/server.js
-Acesse http://localhost:3001/api/tasks
-
+npm run dev
 
 ## 📡 Rotas da API
 
