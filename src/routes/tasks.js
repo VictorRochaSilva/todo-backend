@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Task = require('../models/Task');
+const Task = require('../models/task');
 
 // Rota 1: GET /api/tasks → Lista todas as tarefas
 router.get('/', async (req, res) => {
