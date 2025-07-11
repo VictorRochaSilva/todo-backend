@@ -1,11 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const taskRoutes = require('./routes/tasks');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://admin:senha123@localhost:27017/todo?authSource=admin');
+// Conexão com MongoDB usando a URI do .env
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Conectado ao MongoDB!'))
+  .catch(err => console.error('Erro na conexão:', err));
 
 app.use('/api/tasks', taskRoutes);
-app.listen(3001, () => console.log('Servidor rodando na porta 3001'));
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
