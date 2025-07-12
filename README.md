@@ -49,13 +49,13 @@ docker-compose up -d
 ```
 🚀 Execução do Projeto
 
-# Variáveis de Ambiente
+## Variáveis de Ambiente
 copie do env.example os dados para o arquivo .env na raiz do projeto.
 
-# Para rodar em produção:
+## Para rodar em produção:
 npm start
 
-# Para desenvolvimento (com hot-reload):
+## Para desenvolvimento (com hot-reload):
 npm run dev
 
 ## 📡 Rotas da API
