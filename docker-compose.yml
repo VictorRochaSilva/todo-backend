@@ -17,8 +17,6 @@ services:
     container_name: backend
     depends_on:
       - mongodb
-    environment:
-      MONGO_URI: mongodb://admin:senha123@mongodb:27017/admin?authSource=admin
     command: npm run start
     networks:
       - internal_network
