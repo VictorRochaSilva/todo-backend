@@ -16,8 +16,5 @@ COPY . .
 # 6. Compila TypeScript para JavaScript (geralmente vai pra pasta /dist)
 RUN npm run build
 
-# 7. Expõe a porta que seu app usa
-EXPOSE 8085
-
-# 8. Comando para rodar o app compilado
+# 7. Comando para rodar o app compilado
 CMD ["node", "dist/server.js"]
