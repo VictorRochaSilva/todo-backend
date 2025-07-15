@@ -1,9 +1,11 @@
+version: "3.8"
+
 services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
     volumes:
-      - mongodb_data:/data/db]
+      - mongodb_data:/data/db
     networks:
       - internal_network
     environment:
@@ -15,11 +17,11 @@ services:
     container_name: backend
     depends_on:
       - mongodb
-    networks:
-      - internal_network
     environment:
       MONGO_URI: mongodb://admin:senha123@mongodb:27017/todo?authSource=admin
     command: npm run start
+    networks:
+      - internal_network
 
 volumes:
   mongodb_data:
