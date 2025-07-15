@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongoUri = "mongodb://admin:senha123@mongo:27017/?authSource=admin";
+const mongoUri = "mongodb://admin:senha123@mongodb:27017/?authSource=admin";
 
 async function connectMongo() {
     if (mongoose.connection.readyState >= 1) return;
