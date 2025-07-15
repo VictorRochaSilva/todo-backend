@@ -3,7 +3,7 @@ dotenv.config();
 
 import mongoose from 'mongoose';
 
-const mongoUri = "mongodb://admin:senha123@mongodb:27017/todo?authSource=admin" as string;
+const mongoUri = "mongodb://admin:senha123@mongodb:27017/admin?authSource=admin" as string;
 
 console.log(mongoUri);
 
