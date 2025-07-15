@@ -19,7 +19,7 @@ services:
       - mongodb
     environment:
       # Aqui a string de conexão pro Mongo dentro do docker-compose (use o nome do serviço)
-      MONGO_URI: mongodb://admin:senha123@mongodb:27017/seu_banco?authSource=admin
+      MONGO_URI: mongodb://admin:senha123@mongodb:27017/todo?authSource=admin
     command: npm run start
 
 volumes:
