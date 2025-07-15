@@ -1,17 +1,16 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import mongoose from 'mongoose';
 
-const mongoUri = "mongodb://admin:senha123@mongodb:27017/admin?authSource=admin" as string;
+const mongoUri = "mongodb://admin:senha123@mongo:27017/?authSource=admin";
 
-console.log(mongoUri);
+async function connectMongo() {
+    if (mongoose.connection.readyState >= 1) return;
 
-if (!mongoUri) {
-    console.error("MONGODB_URI não definida no .env");
-    process.exit(1);
+    try {
+        await mongoose.connect(mongoUri, { dbName: "admin" });
+        console.log("✅ Conectado ao MongoDB!");
+    } catch (err) {
+        console.error("❌ Erro ao conectar no MongoDB:", err);
+    }
 }
 
-mongoose.connect(mongoUri)
-    .then(() => console.log("Conectado ao MongoDB!"))
-    .catch((err) => console.error("Erro ao conectar no MongoDB:", err));
+connectMongo();
