@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Builds e artefatos
+dist/
+build/
+*.tsbuildinfo
+
+# Ambientes
+.env
+.env.*   # cobre .env.local, .env.production etc
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema e IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Se usar PM2 ou outros processos
+pids/
+*.pid
+*.seed
+
+# Arquivos temporários
+*.swp
+*.swo
