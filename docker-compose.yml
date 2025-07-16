@@ -24,7 +24,7 @@ services:
       - internal_network
 
 volumes:
-  mongodb_data:
+  mongo_data:
 
 networks:
   internal_network:
