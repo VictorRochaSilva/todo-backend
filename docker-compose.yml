@@ -6,7 +6,8 @@ services:
     container_name: mongodb
     networks:
       - internal_network
-    # REMOVIDO: MONGO_INITDB_ROOT_USERNAME e MONGO_INITDB_ROOT_PASSWORD
+    volumes:
+      - mongo_data:/data/db
 
   backend:
     build: .
