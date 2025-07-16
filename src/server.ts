@@ -1,11 +1,10 @@
 import 'reflect-metadata';
-import { app } from './config/app';
-import connectMongo from './config/database';
+import { app, database } from './config/app';
 
 const PORT = 8085;
 
 async function startServer() {
-  await connectMongo(); // só continua quando o banco estiver pronto
+  await database.connect('admin'); // conecta MongoDB antes de rodar o app
 
   app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando na porta ${PORT}`);

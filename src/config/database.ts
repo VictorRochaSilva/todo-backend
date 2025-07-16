@@ -1,13 +1,27 @@
 import mongoose from 'mongoose';
 
-const mongoUri = "mongodb://admin:senha123@mongodb:27017/?authSource=admin";
+export class Database {
+    private mongoUri: string;
+    private isConnected: boolean = false;
 
-export default async function connectMongo() {
-    try {
-        await mongoose.connect(mongoUri, { dbName: "admin" });
-        console.log("✅ Conectado ao MongoDB!");
-    } catch (err) {
-        console.error("❌ Erro ao conectar no MongoDB:", err);
-        process.exit(1); // força o app a parar se não conectar
+    constructor(mongoUri: string) {
+        this.mongoUri = mongoUri;
+    }
+
+    public async connect(dbName: string = 'admin'): Promise<void> {
+        if (this.isConnected || mongoose.connection.readyState >= 1) {
+            console.log('✅ MongoDB já conectado.');
+            this.isConnected = true;
+            return;
+        }
+
+        try {
+            await mongoose.connect(this.mongoUri, { dbName });
+            this.isConnected = true;
+            console.log('✅ Conectado ao MongoDB!');
+        } catch (error) {
+            console.error('❌ Erro ao conectar no MongoDB:', error);
+            process.exit(1);
+        }
     }
 }
