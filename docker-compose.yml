@@ -4,8 +4,6 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
-    volumes:
-      - mongo_data:/data/db
     networks:
       - internal_network
     environment:
@@ -22,9 +20,6 @@ services:
     command: npm run start
     networks:
       - internal_network
-
-volumes:
-  mongo_data:
 
 networks:
   internal_network:
