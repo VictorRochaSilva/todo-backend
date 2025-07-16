@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const mongoUri = "mongodb://admin:senha123@mongodb:27017/?authSource=admin";
 
-async function connectMongo() {
+export default async function connectMongo() {
     if (mongoose.connection.readyState >= 1) return;
 
     try {
@@ -10,7 +10,6 @@ async function connectMongo() {
         console.log("✅ Conectado ao MongoDB!");
     } catch (err) {
         console.error("❌ Erro ao conectar no MongoDB:", err);
+        process.exit(1); // força o app a parar se não conectar
     }
 }
-
-connectMongo();
