@@ -5,7 +5,7 @@ services:
     image: mongo:latest
     container_name: mongodb
     volumes:
-      - mongodb_data:/data/db
+      - mongo_data:/data/db
     networks:
       - internal_network
     environment:
